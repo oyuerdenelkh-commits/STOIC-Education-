@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Agrandir font — loaded via Google Fonts fallback (Inter as substitute) */
+/* In production, purchase and self-host Agrandir from Pangram Pangram */
+@layer base {
+  :root {
+    --stoic-black: #0A0A0A;
+    --stoic-white: #FAFAFA;
+    --stoic-navy: #0A1628;
+    --stoic-gold: #C9A84C;
+    --stoic-gray: #F4F4F2;
+    --stoic-border: #E8E8E4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAFAFA;
+    color: #0A0A0A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.2);
+    color: #0A1628;
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #F4F4F2; }
+  ::-webkit-scrollbar-thumb { background: #C9A84C; border-radius: 3px; }
+}
+
+@layer components {
+  /* STOIC Button System */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-stoic-navy text-stoic-white
+    text-body-md font-semibold px-8 py-4 rounded-2xl
+    hover:bg-stoic-black transition-all duration-200
+    hover:scale-[1.02] active:scale-[0.98]
+    shadow-stoic hover:shadow-stoic-lg;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-stoic-gold text-stoic-navy
+    text-body-md font-bold px-8 py-4 rounded-2xl
+    hover:bg-stoic-gold-light transition-all duration-200
+    hover:scale-[1.02] active:scale-[0.98]
+    shadow-gold;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+    border-2 border-stoic-navy text-stoic-navy
+    text-body-md font-semibold px-8 py-4 rounded-2xl
+    hover:bg-stoic-navy hover:text-white transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+    text-stoic-navy text-body-md font-semibold px-6 py-3 rounded-xl
+    hover:bg-stoic-gray transition-all duration-200;
+  }
+
+  /* Card System */
+  .card {
+    @apply bg-white rounded-3xl border border-stoic-border shadow-stoic
+    hover:shadow-stoic-lg transition-all duration-300;
+  }
+
+  .card-dark {
+    @apply bg-stoic-navy text-white rounded-3xl shadow-stoic-lg;
+  }
+
+  /* Input System */
+  .input {
+    @apply w-full bg-stoic-gray border border-stoic-border rounded-xl
+    px-5 py-4 text-body-md text-stoic-black placeholder:text-stoic-gray-mid
+    focus:outline-none focus:border-stoic-navy focus:bg-white
+    transition-all duration-200;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-stoic-black mb-2 uppercase tracking-wider;
+  }
+
+  /* Section spacing */
+  .section {
+    @apply py-20 md:py-32;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto px-6 md:px-10;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    @apply h-2 bg-stoic-gray rounded-full overflow-hidden;
+  }
+
+  .progress-fill {
+    @apply h-full bg-stoic-navy rounded-full transition-all duration-500;
+  }
+
+  .progress-fill-gold {
+    @apply h-full bg-stoic-gold rounded-full transition-all duration-500;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider;
+  }
+
+  .badge-gold {
+    @apply badge bg-stoic-gold/15 text-stoic-gold border border-stoic-gold/30;
+  }
+
+  .badge-navy {
+    @apply badge bg-stoic-navy/10 text-stoic-navy border border-stoic-navy/20;
+  }
+
+  .badge-green {
+    @apply badge bg-emerald-100 text-emerald-700 border border-emerald-200;
+  }
+
+  /* Sidebar nav item */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-body-md font-medium
+    text-stoic-gray-mid hover:text-stoic-black hover:bg-stoic-gray
+    transition-all duration-150 cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-body-md font-semibold
+    text-stoic-navy bg-stoic-navy/8 transition-all duration-150 cursor-pointer;
+  }
+
+  /* Stoic quote style */
+  .stoic-quote {
+    @apply relative pl-6 py-2 border-l-4 border-stoic-gold;
+  }
+
+  .stoic-quote p {
+    @apply text-body-lg font-medium italic text-stoic-navy/70 leading-relaxed;
+  }
+
+  .stoic-quote cite {
+    @apply text-sm font-bold text-stoic-gold mt-2 block not-italic uppercase tracking-widest;
+  }
+}
